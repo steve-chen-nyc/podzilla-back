@@ -7,13 +7,13 @@ const mongoose = require('mongoose');
 
 let User = require('../models/user');
 
-router.route('users/login/twitter')
+router.route('https://warm-sea-7753.herokuapp.com/users/login/twitter')
   .get(passport.authenticate('twitter'));
 
-router.route('users/login/twitter/return')
-  .get(passport.authenticate('twitter', { failureRedirect: '/login/twitter' }),
+router.route('https://warm-sea-7753.herokuapp.com/users/login/twitter/return')
+  .get(passport.authenticate('twitter', { failureRedirect: 'https://warm-sea-7753.herokuapp.com/login/twitter' }),
     function(req, res) {
-      res.redirect('/');
+      res.redirect('https://boiling-oasis-5780.herokuapp.com/');
     });
 
 router.route('/profile')
