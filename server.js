@@ -74,8 +74,6 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveU
 app.use(require('cookie-parser')());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'frontend')));
-
 
 let podcast = require('./controllers/podcasts_controller');
 app.use('/podcasts', podcast);
