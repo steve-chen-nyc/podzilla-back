@@ -15,7 +15,7 @@ const User = require('./models/user');
 passport.use(new Strategy({
   consumerKey: process.env.CONSUMER_KEY,
   consumerSecret: process.env.CONSUMER_SECRET,
-  callbackURL: '/users/login/twitter/return'
+  callbackURL: 'https://warm-sea-7753.herokuapp.com/users/login/twitter/return'
   },
   function(token, tokenSecret, profile, done) {
     console.log("hitting auth route");
@@ -69,7 +69,7 @@ app.use(function(req, res, next) {
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({origin: 'http://localhost:8080'}));
+app.use(cors({origin: 'https://boiling-oasis-5780.herokuapp.com/'}));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(require('cookie-parser')());
 app.use(passport.initialize());
