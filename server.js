@@ -69,7 +69,7 @@ app.use(function(req, res, next) {
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({origin: 'https://boiling-oasis-5780.herokuapp.com/'}));
+app.use(cors({origin: 'https://boiling-oasis-5780.herokuapp.com'}));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(require('cookie-parser')());
 app.use(passport.initialize());
