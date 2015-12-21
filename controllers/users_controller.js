@@ -13,7 +13,7 @@ router.route('/login/twitter')
 router.route('/login/twitter/return')
   .get(passport.authenticate('twitter', { failureRedirect: '/login/twitter' }),
     function(req, res) {
-      res.redirect('http://localhost:8080/webpack-dev-server/');
+      res.redirect('/');
     });
 
 router.route('/profile')
