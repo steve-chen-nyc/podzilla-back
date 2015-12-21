@@ -83,10 +83,19 @@ app.use('/podcasts', podcast);
 let user = require('./controllers/users_controller');
 app.use('/users', user);
 
+function sessionCleanup() {
+    sessionStore.all(function(err, sessions) {
+        for (var i = 0; i < sessions.length; i++) {
+            sessionStore.get(sessions[i], function() {} );
+        }
+    });
+}
+
 app.get('/', (req,res) => {
   res.send('server running')
 })
 
+
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/podcasts')
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000)
