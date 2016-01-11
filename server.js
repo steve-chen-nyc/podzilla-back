@@ -18,7 +18,6 @@ passport.use(new Strategy({
   callbackURL: 'https://warm-sea-7753.herokuapp.com/users/login/twitter/return'
   },
   function(token, tokenSecret, profile, done) {
-    console.log("hitting auth route");
     User.findOne({
         // query's data base to see if profile id_str matches.
       'id_str': profile.id
@@ -39,13 +38,10 @@ passport.use(new Strategy({
           if (err) return (err);
           else
           return done(null, user);
-          console.log('this is return user' + user)
-        });
-      }
-      // need to redirect when route has been completed
-          console.log('this is the returned data'  + user);
-      return done(null, user);
 
+      });
+        }
+       return done(null, user);
     });
   }));
 
