@@ -25,21 +25,18 @@ router.route('/profile')
 router.route('/profile')
   .patch(updateUser);
 
-  function updateUser(req, res) {
-    let id = req.body.id_str;
+    function updateUser(req, res) {
+      let id = req.body.id_str;
 
-    User.findOneAndUpdate({id_str: id},
-      {$push: {podcasts: req.body.podcast}},
-      {safe: true, upsert: true, new: true},
+      User.findOneAndUpdate({id_str: id},
+        {$push: {podcasts: req.body.podcast}},
+        {safe: true, upsert: true, new: true},
 
-      function(err,user) {
-        if(err) throw err;
-        res.json({message: 'podcast added successfully', user: user})
-      });
-   }
- });
-});
-}
+        function(err,user) {
+          if(err) throw err;
+          res.json({message: 'podcast added successfully', user: user})
+        });
+    }
 
 router.route('/')
 
