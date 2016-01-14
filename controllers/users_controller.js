@@ -13,7 +13,7 @@ router.route('/login/twitter')
 router.route('/login/twitter/return')
   .get(passport.authenticate('twitter', { failureRedirect: 'https://warm-sea-7753.herokuapp.com/login/twitter' }),
     function(req, res) {
-      res.redirect('https://boiling-oasis-5780.herokuapp.com/');
+      res.redirect('https://getpodzilla.herokuapp.com/');
     });
 
 router.route('/profile')
